@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+
+		<link rel="stylesheet" href="style.css" />
+		<title>Frontend Mentor | Multi-step form</title>
+	</head>
+	<body>
+		<div class="main-container">
+			<nav class="navbar">
+				<div class="nav_item">
+					<div class="nav_item_number">1</div>
+					<div class="nav_item_text">
+						<p class="nav_step_number">step 1</p>
+						<p class="nav_step_title">your info</p>
+					</div>
+				</div>
+
+				<div class="nav_item">
+					<div class="nav_item_number">2</div>
+					<div class="nav_item_text">
+						<p class="nav_step_number">step 2</p>
+						<p class="nav_step_title">select plan</p>
+					</div>
+				</div>
+
+				<div class="nav_item">
+					<div class="nav_item_number">3</div>
+					<div class="nav_item_text">
+						<p class="nav_step_number">step 3</p>
+						<p class="nav_step_title">add-ons</p>
+					</div>
+				</div>
+
+				<div class="nav_item">
+					<div class="nav_item_number">4</div>
+					<div class="nav_item_text">
+						<p class="nav_step_number">step 4</p>
+						<p class="nav_step_title">summary</p>
+					</div>
+				</div>
+			</nav>
+			<main>
+				<section id="s1" class="personal_info section">
+					<div class="section_header">
+						<h1 class="section_title">Personal info</h1>
+						<p class="section_description">
+							please provide your name, email address, and phone number
+						</p>
+					</div>
+
+					<form class="form" id="s1_form" novalidate>
+						<div class="input_item">
+							<label for="name"
+								>name <span id="name_error">this field is required</span></label
+							>
+							<input
+								id="name"
+								class="input"
+								type="text"
+								name="name"
+								placeholder="e.g. Stephen King"
+								required
+							/>
+						</div>
+
+						<div class="input_item">
+							<label for="email"
+								>email address
+								<span id="email_error">this field is required</span></label
+							>
+							<input
+								class="input"
+								id="email"
+								type="email"
+								name="email"
+								placeholder="e.g. StephenKing@lorem.com"
+								required
+							/>
+						</div>
+
+						<div class="input_item">
+							<label for="phone"
+								>phone number
+								<span id="phone_error">this field is required</span></label
+							>
+							<input
+								id="phone"
+								class="input"
+								type="text"
+								name="phone"
+								placeholder="e.g. +1 234 567 890"
+								value="+"
+								onfocus="if (this.value === '') this.value = '+';"
+								onblur="if (this.value === '+') this.value = '';"
+								pattern="^\+?\d{10}$"
+								required
+							/>
+						</div>
+					</form>
+					<div class="btn-aria">
+						<button type="submit" class="next_button btn">next step</button>
+					</div>
+				</section>
+
+				<section id="s2" class="plan section">
+					<div class="section_header">
+						<h2 class="section_title">select your plan</h2>
+						<p class="section_description">
+							you have the option of monthly or yearly billing
+						</p>
+					</div>
+
+					<div class="plans">
+						<div class="plan_unit" id="plan1">
+							<div class="plan_icon">
+								<img src="assets/images/icon-arcade.svg" />
+							</div>
+							<div class="plan_text">
+								<h3 class="plan_title">Arcade</h3>
+								<p class="plan_payment">$9/mn</p>
+								<p class="freebies">2 months free</p>
+							</div>
+						</div>
+
+						<div class="plan_unit" id="plan2">
+							<div class="plan_icon">
+								<img src="assets/images/icon-advanced.svg" />
+							</div>
+							<div class="plan_text">
+								<h3 class="plan_title">advanced</h3>
+								<p class="plan_payment">$12/mn</p>
+								<p class="freebies">2 months free</p>
+							</div>
+						</div>
+
+						<div class="plan_unit" id="plan3">
+							<div class="plan_icon">
+								<img src="assets/images/icon-pro.svg" />
+							</div>
+							<div class="plan_text">
+								<h3 class="plan_title">pro</h3>
+								<p class="plan_payment">$15/mn</p>
+								<p class="freebies">2 months free</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="plan_selector">
+						<span class="switch-label" id="monthly-label">Monthly</span>
+						<label class="switch" id="switch">
+							<input type="checkbox" id="toggle" />
+							<span class="slider round"></span>
+						</label>
+						<span class="switch-label" id="yearly-label">Yearly</span>
+					</div>
+					<div class="btn-aria">
+						<a class="back_button btn">go back</a>
+						<button class="next_button btn">next step</button>
+					</div>
+				</section>
+
+				<section id="s3" class="section">
+					<div class="section_header">
+						<h2 class="section_title">pick add-ons</h2>
+						<p class="section_description">
+							Add-ons help enhance your gaming experience
+						</p>
+					</div>
+
+					<div class="add-ons">
+						<template id="add-on-template">
+							<div class="add-on_box">
+								<input type="checkbox" />
+								<div class="add-on_text">
+									<p class="add-on_title"></p>
+									<p class="add-on_desc"></p>
+								</div>
+								<p class="add-on_price"></p>
+							</div>
+						</template>
+					</div>
+					<div class="btn-aria">
+						<a class="back_button btn">go back</a>
+						<button class="next_button btn">next step</button>
+					</div>
+				</section>
+
+				<section id="s4" class="section">
+					<div class="section_header">
+						<h2 class="section_title">Finishing up</h2>
+						<p class="section_description">
+							Double-check everything looks OK before confirming.
+						</p>
+					</div>
+
+					<template id="add-ons_selected-template">
+						<div class="add-ons_selected">
+							<p class="add_on_selected_title"></p>
+							<p class="add_on_selected_price"></p>
+						</div>
+					</template>
+
+					<div class="receipt">
+						<div class="receipt_header">
+							<div class="plan_selected">
+								<h4 class="plan_selected_title"></h4>
+								<a class="change_plan">change</a>
+							</div>
+							<p class="plan_price"></p>
+						</div>
+						<hr />
+						<div id="add-ons-container"></div>
+					</div>
+
+					<div class="total_payment">
+						<p class="total"></p>
+						<p class="total_price"></p>
+					</div>
+					<div class="btn-aria">
+						<a class="back_button btn">go back</a>
+						<button class="next_button btn">next step</button>
+					</div>
+				</section>
+
+				<section id="s5" class="section">
+					<div class="thank_you">
+						<img src="assets/images/icon-thank-you.svg" />
+						<div class="section_header">
+							<h2 class="section_title">thank you</h2>
+						</div>
+						<p class="thanks_letter">
+							Thank you <span class="name">X</span> for confirming your
+							subscription! we hope you have fun using our platform. if you ever
+							need support, please feel free to email us at
+							support@loremgaming.com.
+						</p>
+					</div>
+					<div class="btn-aria">
+						<a class="back_button btn">go back</a>
+					</div>
+				</section>
+			</main>
+		</div>
+		<div class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#"> Abdelsam lahjouji</a>.
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
